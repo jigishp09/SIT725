@@ -1,0 +1,23 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    margin-top: 50px;
+    text-align: center;
+}
+nav {
+    margin-bottom: 20px;
+    background-color: #470079;
+    padding: 10px;
+}
+button {
+    margin-top: 20px;
+}
+p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #470079;
+}

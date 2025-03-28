@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternConnect</title>
+    <style>
+        @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+        .teal { background-color: #00796b; }
+        .nav-wrapper { padding: 0 20px; }
+        .brand-logo { font-size: 24px; font-weight: bold; }
+        .btn { padding: 10px 20px; border-radius: 25px; font-weight: bold; text-transform: uppercase; cursor: pointer; }
+        .waves-effect { transition: all 0.3s; }
+        .waves-light:hover { background-color: #ff5722 !important; }
+        
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        nav {
+            margin-bottom: 20px;
+            background: #eceae3; 
+            height: 80px; 
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+            position: relative; 
+        }
+        nav .nav-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 0 20px;
+        }
+        nav .brand-logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #333; 
+            text-align: center;
+            flex-grow: 1;
+            text-decoration: none; 
+        }
+        nav .brand-logo:hover {
+            color: #ff5722;
+        }
+        nav ul {
+            position: absolute;
+            bottom: 10px; 
+            right: 20px;
+            display: flex;
+            justify-content: flex-end;
+            padding-left: 0;
+            margin: 0;
+        }
+        nav ul li {
+            list-style: none;
+            margin-left: 20px;
+        }
+        nav ul li a {
+            font-size: 18px;
+            color: #333; 
+            padding: 10px 15px;
+            text-decoration: none; 
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ff5722; 
+        }
+        button {
+            margin-top: 20px;
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #ff5722, #e91e63);
+            transform: scale(1.05);
+        }
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00796b;
+            margin-top: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav .brand-logo {
+                font-size: 22px;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                bottom: 20px; 
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">InternConnect</a>
+            <ul id="nav-mobile">
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h4 class="center">Find Your Internship</h4>
+        <button class="btn waves-effect waves-light" onclick="showMessage()">Click Me</button>
+        <p id="output" class="center"></p>
+    </div>
+    <script>
+        function showMessage() {
+            document.getElementById("output").innerHTML = "Welcome to InternConnect!";
+        }
+    </script>
+</body>
+</html>
