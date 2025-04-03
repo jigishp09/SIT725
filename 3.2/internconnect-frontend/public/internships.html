@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Post Internship - InternConnect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Post a New Internship</h2>
+  <form id="internshipForm">
+    <input type="text" id="title" placeholder="Internship Title" required><br><br>
+    <input type="text" id="company" placeholder="Company Name" required><br><br>
+    <input type="text" id="skills" placeholder="Required Skills (comma-separated)" required><br><br>
+    <input type="text" id="location" placeholder="Location" required><br><br>
+    <button type="submit">Submit Internship</button>
+  </form>
+
+  <h3>Available Internships</h3>
+  <ul id="internshipList"></ul>
+
+  <script>
+    const form = document.getElementById('internshipForm');
+    const list = document.getElementById('internshipList');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value;
+      const company = document.getElementById('company').value;
+      const skills = document.getElementById('skills').value.split(',').map(s => s.trim());
+      const location = document.getElementById('location').value;
+
+      const res = await fetch('/api/internships', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, company, skills, location }),
+      });
+
+      const msg = await res.text();
+      alert(msg);
+      form.reset();
+      loadInternships(); // Refresh the list
+    });
+
+    async function loadInternships() {
+      const res = await fetch('/api/internships');
+      const data = await res.json();
+
+      list.innerHTML = '';
+      data.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = `${item.title} at ${item.company} - [${item.skills.join(', ')}] (${item.location})`;
+        list.appendChild(li);
+      });
+    }
+
+    // Load internships when the page loads
+    window.onload = loadInternships;
+  </script>
+</body>
+</html>
