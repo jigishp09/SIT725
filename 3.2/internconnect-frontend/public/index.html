@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -127,5 +127,77 @@
             document.getElementById("output").innerHTML = "Welcome to InternConnect!";
         }
     </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InternConnect</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2.5em;
+      color: #333;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      transition: background 0.3s;
+    }
+
+    .login { background: #007BFF; }
+    .register { background: #28A745; }
+    .browse { background: #17A2B8; }
+    .post { background: #FFC107; color: #333; }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to InternConnect</h1>
+  <p>Your gateway to skill-based internships. No experience required — just talent.</p>
+
+  <div class="button-container">
+    <button class="btn login" onclick="window.location.href='login.html'">Login</button>
+    <button class="btn register" onclick="window.location.href='register.html'">Register</button>
+    <button class="btn browse" onclick="window.location.href='browseInternships.html'">Browse Internships</button>
+    <button class="btn post" onclick="window.location.href='postInternships.html'">Post Internship</button>
+  </div>
 </body>
 </html>
