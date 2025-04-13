@@ -33,7 +33,7 @@
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.role);
         // Redirect based on role
-        window.location.href = data.role === "company" ? "/post.html" : "/internships.html";
+        window.location.href = data.role === "company" ? "/postInternships.html" : "/browseInternships.html";
       } else {
         document.getElementById("msg").innerText = data.message || "Login failed!";
       }
