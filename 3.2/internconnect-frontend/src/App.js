@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+const express = require("express");
+const mongoose = require("mongoose");
+const path = require("path");
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const app = express();
+app.use(express.json());
+app.use(express.static("public"));
 
-export default App;
+mongoose.connect("mongodb://127.0.0.1:27017/internconnect", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log("✅ Connected to MongoDB"))
+.catch((err) => console.error("MongoDB error:", err));
+
+app.use("/api/auth", require("../routes/auth"));
+app.use("/api/internships", require("../routes/internships"));
+
+app.get("/about", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "about.html"));
+});
+
+app.get("/contact", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "contact.html"));
+});
+
+module.exports = app;
